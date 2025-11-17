@@ -68,13 +68,13 @@ class StudentsPage extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(vertical: 8),
                 child: ListTile(
                   leading: CircleAvatar(
-                    child: Text(student['rollNumber'].toString()),
+                    child: Text(student['name'][0].toUpperCase()),
                   ),
                   title: Text(
                     student['name'],
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  subtitle: Text('Course: ${student['course']}'),
+                  subtitle: Text('Roll: ${student['rollNumber']} | Course: ${student['course']}'),
                   trailing: IconButton(
                     icon: const Icon(Icons.delete_outline),
                     onPressed: () {
@@ -83,9 +83,11 @@ class StudentsPage extends StatelessWidget {
                           .doc(student.id)
                           .delete();
                     },
-                  ),
+                ),
+
                 ),
               );
+
             },
           );
         },
